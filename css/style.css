@@ -1805,3 +1805,48 @@ form label {
 
 /*# sourceMappingURL=style.css.map */
 
+
+/* Header spacing and distribution overrides */
+@media screen and (min-width: 768px) {
+  .fh5co-cover .display-tc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    height: 900px;
+  }
+  .fh5co-cover .display-tc h1 {
+    margin: 0;
+    line-height: 1.05;
+    max-width: 1100px;
+    text-align: center;
+  }
+  .fh5co-cover .display-tc h1:first-of-type {
+    font-size: clamp(56px, 10vw, 160px);
+    letter-spacing: 1px;
+  }
+  .fh5co-cover .display-tc h1:nth-of-type(2) {
+    font-size: clamp(28px, 6vw, 72px);
+    margin: 0;
+  }
+  .fh5co-cover .display-tc h2 {
+    margin: 0;
+    font-size: clamp(14px, 1.6vw, 28px);
+    opacity: 0.95;
+    letter-spacing: 2px;
+  }
+  .fh5co-cover .display-tc .flipTimebox {
+    margin-top: 12px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .fh5co-cover .display-tc {
+    display: block;
+    text-align: center;
+  }
+  .fh5co-cover .display-tc h1 { margin-bottom: 10px; }
+  .fh5co-cover .display-tc h2 { margin-top: 6px; }
+}
+
