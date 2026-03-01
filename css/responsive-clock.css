@@ -179,6 +179,49 @@
   }
 }
 
+/* Center the clock wrapper and ensure responsive margins */
+.flipTimebox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto !important;
+  text-align: center;
+}
+.flipTimebox .flip-clock-wrapper {
+  margin: 0 !important;
+}
+@media screen and (max-width: 480px) {
+  .flipTimebox {
+    margin: 30px auto 60px !important;
+    padding-left: 0 !important;
+  }
+}
+
+/* Additional strong centering rules to override plugin defaults */
+.flipTimebox {
+  text-align: center !important;
+}
+.flipTimebox .clock,
+.flipTimebox .clock * {
+  box-sizing: border-box !important;
+}
+.flipTimebox .clock {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  width: auto !important;
+  max-width: 100% !important;
+}
+.flipTimebox .flip-clock-wrapper {
+  margin: 0 auto !important;
+  float: none !important;
+  display: inline-block !important;
+}
+@media screen and (max-width: 768px) {
+  .flipTimebox {
+    padding-left: 0 !important;
+  }
+}
+
 .flip-clock-wrapper {
   margin: 4em !important;
 }
