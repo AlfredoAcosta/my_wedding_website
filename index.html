@@ -33,8 +33,8 @@
 	
 	<!-- clock   -->
 	<link rel="stylesheet" href="css/responsive-clock.css">
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	<!-- Animate.css - defer non-critical animations -->
+	<link rel="stylesheet" href="css/animate.css" media="print" onload="this.media='all'">
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Bootstrap  -->
@@ -352,33 +352,38 @@
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
 
-	<!-- jQuery -->
+	<!-- jQuery - critical for page function -->
 	<script src="js/jquery.min.js"></script>
-    <!-- clock -->
-	<script src="js/clock.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Carousel -->
-	<script src="js/owl.carousel.min.js"></script>
-	<!-- countTo -->
-	<script src="js/jquery.countTo.js"></script>
-	<script src='https://momentjs.com/downloads/moment.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.min.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.js'></script>
-	<!-- Stellar -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Magnific Popup -->
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/magnific-popup-options.js"></script>
-
-	<!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
-	<script src="js/simplyCountdown.js"></script>
-	<!-- Main -->
+	<!-- Lazy load images -->
+	<script src="js/lazy-load.js"></script>
+	<!-- Main - executes after jQuery loads -->
 	<script src="js/main.js"></script>
+	
+    <!-- Non-critical scripts deferred for better performance -->
+	<!-- clock -->
+	<script src="js/clock.js" defer></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js" defer></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js" defer></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js" defer></script>
+	<!-- Carousel -->
+	<script src="js/owl.carousel.min.js" defer></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js" defer></script>
+	<!-- Stellar -->
+	<script src="js/jquery.stellar.min.js" defer></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js" defer></script>
+	<script src="js/magnific-popup-options.js" defer></script>
+	<!-- Simply Countdown -->
+	<script src="js/simplyCountdown.js" defer></script>
+	
+	<!-- External CDN scripts with defer for non-critical functionality -->
+	<script src='https://momentjs.com/downloads/moment.js' defer></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.min.js' defer></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.js' defer></script>
 	<!-- <center>View Source Code on <a href="https://github.com/shyamjos/wedding-website">GitHub <img src="images/github-logo.png"> </a> </center> -->
 	</body>
 </html>
