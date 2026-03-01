@@ -217,8 +217,9 @@
 	$(function(){
 		mobileMenuOutsideClick();
 		parallax();
-		offcanvasMenu();
-		burgerMenu();
+		// Disabled offcanvas and burger menu to remove the hamburger navigation
+		// offcanvasMenu();
+		// burgerMenu();
 		contentWayPoint();
 		dropdown();
 		testimonialCarousel();
