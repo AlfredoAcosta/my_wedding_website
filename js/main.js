@@ -208,9 +208,19 @@
 		}
 	};
 
-	// Parallax
+	// Parallax (use viewportElement so jQuery 3 doesn't call .offset() on window, which causes getClientRects error)
 	var parallax = function() {
-		$(window).stellar();
+		try {
+			var $scroll = $(window);
+			var viewportEl = document.getElementById('page');
+			if (viewportEl) {
+				$scroll.stellar({ viewportElement: viewportEl });
+			} else {
+				$scroll.stellar();
+			}
+		} catch (e) {
+			// Stellar 0.6.2 can throw with jQuery 3; skip parallax so rest of page works
+		}
 	};
 
 	
