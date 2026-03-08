@@ -1,11 +1,11 @@
 // Lazy load images using Intersection Observer API
 if ('IntersectionObserver' in window) {
-	const imageObserver = new IntersectionObserver((entries, observer) => {
-		entries.forEach(entry => {
+	var imageObserver = new IntersectionObserver(function (entries, observer) {
+		entries.forEach(function (entry) {
 			if (entry.isIntersecting) {
-				const img = entry.target;
+				var img = entry.target;
 				if (img.dataset.backgroundImage) {
-					img.style.backgroundImage = `url('${img.dataset.backgroundImage}')`;
+					img.style.backgroundImage = "url('" + img.dataset.backgroundImage + "')";
 					img.classList.add('loaded');
 				} else if (img.dataset.src) {
 					img.src = img.dataset.src;
@@ -18,20 +18,30 @@ if ('IntersectionObserver' in window) {
 		rootMargin: '50px' // Start loading 50px before image enters viewport
 	});
 
-	// Observe all elements with data-background-image or data-src
-	document.addEventListener('DOMContentLoaded', () => {
-		document.querySelectorAll('[data-background-image], [data-src]').forEach(img => {
-			imageObserver.observe(img);
+	function initLazyLoad() {
+		document.querySelectorAll('[data-background-image], [data-src]').forEach(function (el) {
+			imageObserver.observe(el);
 		});
-	});
+	}
+	// Run when DOM is ready; if already loaded (e.g. script at end of body on fast desktop), run immediately
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initLazyLoad);
+	} else {
+		initLazyLoad();
+	}
 } else {
 	// Fallback for browsers without IntersectionObserver
-	document.addEventListener('DOMContentLoaded', () => {
-		document.querySelectorAll('[data-background-image]').forEach(el => {
-			el.style.backgroundImage = `url('${el.dataset.backgroundImage}')`;
+	function initFallback() {
+		document.querySelectorAll('[data-background-image]').forEach(function (el) {
+			el.style.backgroundImage = "url('" + el.dataset.backgroundImage + "')";
 		});
-		document.querySelectorAll('[data-src]').forEach(img => {
+		document.querySelectorAll('[data-src]').forEach(function (img) {
 			img.src = img.dataset.src;
 		});
-	});
+	}
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initFallback);
+	} else {
+		initFallback();
+	}
 }
